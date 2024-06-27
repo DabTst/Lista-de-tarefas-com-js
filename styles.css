@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary: black;
+    --secundary: red;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    background: linear-gradient(10deg, rgb(45,4,67) 10%, rgb(23,75,74) 90%);
+    font: bold 2rem;
+    font-family: 'Open Sans' , sans-serif;
+    color: white;
+    height: 100vh;
+}
+
+.todo{
+    display: flex;
+    width: 50vw;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    gap: 15px;
+}
+
+.todo-title{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: var(--secundary);
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    font-size: 4rem;
+    font-weight: 800;
+    box-shadow: 1px 2px 2px var(--primary);
+}
+
+.todo-list{
+    display: block;
+    width: 100%;
+    margin: 0px 30%;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 3%;
+}
+
+.todo-item{
+    display: flex;
+    width: 40vw;
+    height: 50px;
+    justify-content: space-between;
+    padding: 0px 5px;
+    align-items: center;
+    box-shadow: 2px 2px 5px var(--primary);
+    font-size: 1.7rem;
+}
+
+.todo-item > div{
+    width: 80%;
+}
+
+.todo-item:hover{
+    cursor: pointer;
+    transition: all .5s ease;
+    background-color: var(--secundary);
+    color: #fff;
+}
+
+.todo-item > input[type='text']{
+    border: none;
+    width: 80%;
+    font: inherit;
+}
+
+.todo-item > input[type= 'button'],
+.todo-item > input[type= 'checkbox']{
+    width: 30px;
+    height: 30px;
+    font: inherit;
+}
+
+.todo-item > input[type= "checkbox"]:checked + div{
+    text-decoration: line-through 2px;
+}
+
+.todo-new-item{
+    display: flex;
+    background-color: #fff;
+    width: 40vw;
+    height: 70px;
+    justify-content: space-evenly;
+    padding: 10px 0;
+    box-shadow: 2px 2px 5px var(--secundary);
+    margin: 20px 30%;
+    font: inherit;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.todo-new-item > input{
+    background-color: #fff;
+    border: none;
+    width: 80%;
+    outline: none;
+    font: inherit;
+}
+
+.todo-new-item div{
+    color: var(--primary);
+    font-weight: 600;
+}
+
+
+
+
