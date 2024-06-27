@@ -8,6 +8,7 @@
 const getBanco = () => JSON.parse(localStorage.getItem('todoList')) ?? [];
 const setBanco = (banco) => localStorage.setItem('todoList', JSON.stringify(banco)) 
 
+//criar item novo-nova tarefa
 const criarItem = (task, status, indice) =>{
     const item = document.createElement('label')
     item.classList.add('todo-item');
@@ -19,6 +20,7 @@ const criarItem = (task, status, indice) =>{
     document.getElementById('todoList').appendChild(item);
 }
 
+//limpar tarefa
 const cleanTask = () => {
     const todoList = document.getElementById("todoList")
     while( todoList.firstChild){
@@ -26,13 +28,14 @@ const cleanTask = () => {
     }
 }
 
+//actualizar tela depois de criar nova tarefa
 const updateScreen = () => {
     cleanTask()
     const banco = getBanco()
     banco.forEach((item, indice) => criarItem(item.task, item.status, indice))
 }
 
-
+//inserir tarefa com tecla Enter
 const insertItem = (evento) =>{
     const keybord = evento.key;
     const Text = evento.target.value
@@ -45,6 +48,7 @@ const insertItem = (evento) =>{
     }
 }
 
+//remover tarefa
 const removeItem = (indice) => {
     const banco =getBanco()
     banco.splice(indice, 1);
@@ -52,6 +56,7 @@ const removeItem = (indice) => {
     updateScreen()
 }
 
+//verificar se tarefa foi concluida
 const updateItem = (indice) => {
     const banco = getBanco()
     banco[indice].status = banco [indice].status=== ``? 'checked' : ``;
@@ -72,4 +77,5 @@ const clickItem =(evento)=>{
 document.getElementById('newItem').addEventListener('keypress', insertItem)
 document.getElementById("todoList").addEventListener("click", clickItem)
 
+//Chamada para actualizar indice
 updateScreen()
